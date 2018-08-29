@@ -3,6 +3,8 @@
  * Author: Richard Bradshaw
  * Created on: Feb 8, 2018
  * Description: This class controls the elevator.
+ * Change log: 
+ * Date: 8/28/2018 commented all the code
  */
 #include "Elevator.hpp"
 
