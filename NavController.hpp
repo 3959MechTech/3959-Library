@@ -4,7 +4,9 @@
  *  Created on: Feb 1, 2018
  *      Author: Cloie
  * Power Up 2018
- * Nav Contoller hpp holds the header files from cpp
+ * Nav Controller takes the position of the robot and a
+ * targeted position and calculates how to get there which
+ * is called the error.
  * Change Log: August 28, 2018- added descriptions and comments.
  */
 
