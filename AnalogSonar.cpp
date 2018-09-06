@@ -10,7 +10,7 @@
  * Summary: This file is short but is VERY important, it is fully documented for rookies to easily understand with knowledge given by Jim
  * it uses volts per inch ("0v to 5v") and 5" to 255" to detect distance.
  *
- * Change Log 8/27/18: Fully commented with new look and info
+ * Change Log 8/27/18: Fully commented with new look and info along with description
  *
  *
  */
