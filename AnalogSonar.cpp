@@ -1,7 +1,7 @@
 /*
  * AnalogSonar.cpp
  *
- * Author: Brandon Fleming / Cole
+ * Author: Brandon Fleming
  *
  * Date: FIRST Power Up 2018
  *
