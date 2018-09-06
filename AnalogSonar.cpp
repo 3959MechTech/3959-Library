@@ -16,7 +16,9 @@
  */
 
 
-#include "AnalogSonar.hpp"
+#include "AnalogSonar.hpp" // includes the commands in the analog sonar hpp file.
+
+//COMMENTED OUT CODE IS NOT BEING USED!!
 
 /*
 AnalogSonar::AnalogSonar(uint32_t channel)
@@ -50,35 +52,35 @@ AnalogSonar::AnalogSonar(int channel) // constructor for the analog sonar
 	m_channel = channel; // creates it as a channel
 	init(); // initialize
 
-	m_allocatedChannel = true;
+	m_allocatedChannel = true; // set the allocated channel as true
 
 }
-AnalogSonar::~AnalogSonar()
+AnalogSonar::~AnalogSonar() // analog sonar call
 {
-	if(m_allocatedChannel)
+	if(m_allocatedChannel) // the allocated channel if statement for the sonar
 	{
-		delete m_sensor; // deletes sensor?
+		delete m_sensor; // deletes sensor
 	}
 }
 
 
-void AnalogSonar::init()
+void AnalogSonar::init() // initializes the analog sonar
 {
 	m_voltsPerInch = 0.0248046875; // minimum of volts per inch
 //	LiveWindow::GetInstance()->AddSensor("AnalogSonar", m_sensor->GetChannel(), this);
-
+	
 	m_sensor->SetSampleRate(50000);
 	m_sensor->SetAverageBits(5);
 	m_sensor->SetOversampleBits(5);
 }
 
-float AnalogSonar::GetDistance()
+float AnalogSonar::GetDistance() // the get distance function
 {
 	return (m_sensor->GetAverageVoltage())/m_voltsPerInch; // gets the distance by performing math with the volts and inches
 }
 
 
-double AnalogSonar::PIDGet()
+double AnalogSonar::PIDGet() // PIDGet is calculus being used
 {
 	return GetDistance(); // returns the distance from the sensor
 }
