@@ -46,27 +46,41 @@ AnalogSonar::AnalogSonar(AnalogInput *channel)
 }
 */
 
-AnalogSonar::AnalogSonar(int channel) // constructor for the analog sonar
+/*
+this holds the basic info for the sonar and starts the sensor, init() starts the process
+m_channel = channel creates it as a channel m_sensor = new AnalogInput(channel starts the 
+sensor m_allocatedChannel = true sets it as true. m_channel sets the sonar as a channel.
+*/
+AnalogSonar::AnalogSonar(int channel)  // this is a constructor!!
 {
-	m_sensor = new AnalogInput(channel); // starts the sensor
-	m_channel = channel; // creates it as a channel
+	m_sensor = new AnalogInput(channel); 
+	m_channel = channel; 
 	init(); // initialize
 
-	m_allocatedChannel = true; // set the allocated channel as true
+	m_allocatedChannel = true;
 
 }
-AnalogSonar::~AnalogSonar() // analog sonar call
+
+/*
+This calls the analog sonar, the if statement for the m_allocatedChannel deterimenes whether to delete the sensor or not.
+the delete_sensor deletes the sensor.
+*/
+AnalogSonar::~AnalogSonar() 
 {
-	if(m_allocatedChannel) // the allocated channel if statement for the sonar
+	if(m_allocatedChannel) 
 	{
-		delete m_sensor; // deletes sensor
+		delete m_sensor; 
 	}
 }
 
 
-void AnalogSonar::init() // initializes the analog sonar
+/*
+This initializes the sonar. The m_voltsPerInch is the minimum of volts per inch in the sonar. The commented out code 
+is not being used.
+*/
+void AnalogSonar::init()
 {
-	m_voltsPerInch = 0.0248046875; // minimum of volts per inch
+	m_voltsPerInch = 0.0248046875;
 //	LiveWindow::GetInstance()->AddSensor("AnalogSonar", m_sensor->GetChannel(), this);
 	
 	m_sensor->SetSampleRate(50000);
@@ -74,11 +88,13 @@ void AnalogSonar::init() // initializes the analog sonar
 	m_sensor->SetOversampleBits(5);
 }
 
-float AnalogSonar::GetDistance() // the get distance function
+/*
+This float is for the GetDistance() function which returns the inches detected by the sonar the return statement is 
+getting the distance by performing math with the volts and inches.
+*/
+float AnalogSonar::GetDistance()
 {
-	return (m_sensor->GetAverageVoltage())/m_voltsPerInch; // gets the distance by performing math with the volts and inches
-}
-
+	return (m_sensor->GetAverageVoltage())/m_voltsPerInch;
 
 double AnalogSonar::PIDGet() // PIDGet is calculus being used
 {
